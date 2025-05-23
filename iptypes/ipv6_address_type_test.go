@@ -39,7 +39,7 @@ func TestIPv6AddressTypeValueFromTerraform(t *testing.T) {
 		},
 	}
 	for name, testCase := range testCases {
-		name, testCase := name, testCase
+
 		t.Run(name, func(t *testing.T) {
 			t.Parallel()
 			ctx := context.Background()
@@ -54,7 +54,7 @@ func TestIPv6AddressTypeValueFromTerraform(t *testing.T) {
 				}
 				return
 			}
-			if err == nil && testCase.expectedErr != "" {
+			if testCase.expectedErr != "" {
 				t.Fatalf("Expected error to be %q, didn't get an error", testCase.expectedErr)
 			}
 			if !got.Equal(testCase.expectation) {
